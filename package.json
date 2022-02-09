@@ -1,0 +1,21 @@
+{
+  "name": "project-by-origin",
+  "version": "0.0.0",
+  "description": "Projeto criado com o intuito de estudos sobre o webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.17.0",
+    "@babel/core": "^7.17.2",
+    "@babel/preset-env": "^7.16.11",
+    "webpack": "^5.68.0"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

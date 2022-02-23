@@ -1,6 +1,12 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require("path");
 
 module.exports = {
+  // informa o webpack que estas são configurações de desenvolvimento
+  mode: 'development',
+  devServer: {
+    static: path.resolve(__dirname, 'public'),
+  },
   // O entry é onde definimos o caminho do arquivo principal nosso projeto o ./src/index.jsx
   // a partir daí o webpack monta a árvore de dependências.
   // __dirname será o responsável por resgatar o diretório completo,
@@ -31,7 +37,7 @@ module.exports = {
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        use: "babel-loaders",
+        use: "babel-loader",
       },
       // Agora o loader do css:
       {
@@ -41,4 +47,12 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    // O plugin HTML serve para injetar o arquivo bundle no html automaticamente,
+    // não precisando mais daquele script de import no index.html, isso pode evitar
+    // falhas e esquecimentos caso haja uma mudança futura das configurações
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public', 'index.html'),
+    }),
+  ],
 };
